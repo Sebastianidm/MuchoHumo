@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.App{
+    height:100vh;
+    max-height:100%;
+    background-color: #A63F3F;
+}
+
+.logoimg {
+width: 120px;
+max-width: 120px
+
+}
+
+.containerNav{
+ padding-bottom: 90px
+}
+
+
+
+
+
+
+
+.container {
+    max-width:100%;
+    height:100vh;
+    width:100%;    
+  }
+  
+
+.aside {
+    height: 100vh;
+    width: 100%
+}
+
+.filtrado {
+    width:  80%
+}
+
+.cartita {
+    width:60%;
+    background-color: #FFFAF0;
+}
+
+.tienda {
+    height: 100vh;
+    background-color: #FFFAF0;
+}
+
+.asideBg {
+    background-color: #A63F3F;
+}
+
+
+
+
+
+.containerP {  
+
+ width: 100% ;
+ height: 600px;
+}
+
+.cartaPerfil {
+    
+    width:50%;
+}
+
+/* Favorito */
+
+.favorito {
+    background-color: #A63F3F;
+    height: 100%;
+
+}
+
+.favoritoAside {
+    background-color: #FFFAF0;
+    height: 100vh;
+    width: 100%;
+}
+
+
+
+/* publicar */
+
+.publicar {
+    height: 100%;
+    background-color: #A63F3F;
+    
+}
+
+/*  Detalle */
+.detalleCard {
+
+width: 100%;
+height: 60vh;
+}
