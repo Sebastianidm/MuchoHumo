@@ -1,24 +1,62 @@
-import React from "react";
+import {React, useEffect} from "react";
+import { auth } from "../firebase/Firebase";
+import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { useContext } from "react";
+import myContext from "../context/myContext";
 
 const Tienda = () => {
+  const [term, setTerm] = useState('');
+  const {productosData, setProductosData} = useContext(myContext)
+  const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+
+  const setFavorito = (id) => {
+    //Crea una variable que retorna un indice
+    const apiIndex = productosData.findIndex((e) => e.id === id );
+    productosData[apiIndex].favorito = !productosData[apiIndex].favorito;
+    setProductosData([...api]);
+  }
+
+
+  
+
+
+  useEffect( () => {
+    if(auth.currentUser){
+      console.log('Existe un usuario')
+      setUser(auth.currentUser)
+    }else{
+      console.log('no existe usuario')
+      navigate("/")
+      
+    }
+  },[])
+
   return (
-    <div className="  md:grid md:grid-cols-4 md:grid-rows-1">
+    <div className=" contenedorTienda md:grid md:grid-cols-3 md:grid-rows-3">
       <div className="md:hidden bg-white  py-2 ">
-      <input
-              type="text"
+      <input  
+              value={term}
+              onChange={(e) => setTerm(e.target.value)}
+              type="search"
               placeholder="Buscar producto
               "
               className="text-[15px]  bg-gray-600 rounded w-full h-12 mt-1 "
             />
         
       </div>
-      <div className="sm:hidden md:contents aside md:col-span-1">
-        <div className="asideBg bottom-0  p-2  text-center bg-gray-900">
+
+
+      <div className="sm:hidden md:contents md:col-span-1 ">
+        <div className="  bottom-0  p-2  text-center aside">
 
           <div className="p-2.5 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-white text-dark ">
             <i className="bi bi-search text-sm"></i>
             <input
-              type="text"
+             value={term}
+             onChange={(e) => setTerm(e.target.value)}
+              type="search"
               placeholder="Buscar producto
               "
               className=" ml-4 w-full bg-transparent focus:outline-none"
@@ -70,115 +108,56 @@ const Tienda = () => {
             <h1 className="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
               Puros
             </h1>
-            <h1 className="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
-              Accesorios
-            </h1>
+           
           </div>
           <div className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
             <i className="bi bi-box-arrow-in-right"></i>
-            <span className="text-[15px] ml-4 text-gray-200 font-bold">
-              Logout
-            </span>
+            
           </div>
+          
         </div>
       </div>
 
-      <div className="md:col-span-3 tienda pt-2">
+      <div className="md:col-span-2 tienda pt-2">
         <div className="md:grid md:grid-rows-2 md:grid-cols-2 mt-5">
-          <div className="cartita flex flex-col items-center mx-auto mt-5 mb-5 rounded-r-lg border-4 border-white bg-yellow-50 hover:bg-yellow-100 drop-shadow-lg">
+          {
+            productosData.filter(user => user.name.toLowerCase().includes(term)).map((a) => {
+              return(
+          <div className="cartita flex flex-col items-center mx-auto mt-5 mb-5 rounded-r-lg border-4 border-white bg-yellow-50 hover:bg-yellow-100 drop-shadow-lg" key={a.id}>
             <div>
               <img
-                src="\src\assets\img\logodark.png"
+                src={a.img}
                 alt="logo"
                 className="logoimg mt-3"
               />
             </div>
             <div className="p-3">
-              <h1>Nombre</h1>
-              <strong>Precio</strong>
+              <h1>{a.name}</h1>
+              <strong>{a.desc}</strong>
               <h4>Stock</h4>
             </div>
             <div className="flex  justify-evenly  px-3 py-3">
-              <button className=" m-1 rounded-full bg-white hover:bg-green-600 focus:outline-none focus:ring focus:ring-green-800 w-20 h-10 text-zinc-100  drop-shadow-xl">
-              🛒
+              <button 
+              className=" m-1 rounded-full bg-white hover:bg-green-600 focus:outline-none focus:ring focus:ring-green-800 w-20 h-10 text-zinc-100  drop-shadow-xl"
+              onClick={() => navigate(`/detalle/${a.id}`)}
+              >
+              🔍
               </button>
-              <button className=" m-1 rounded-full bg-white hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-800 w-20 h-10 text-zinc-100 drop-shadow-xl ">
+              <button 
+              className=" m-1 rounded-full bg-white hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-800 w-20 h-10 text-zinc-100 drop-shadow-xl "
+              onClick={() => navigate(`/favoritos/${a.id}`)}>
               💚
               </button>
             </div>
           </div>
+              )
+})
+}       
+
+          
 
 
-          <div className="cartita cartita flex flex-col items-center mx-auto mt-5 mb-5 rounded-r-lg border-4 border-white bg-yellow-50 hover:bg-yellow-100 drop-shadow-lg">
-            <div>
-              <img
-                src="\src\assets\img\logodark.png"
-                alt="logo"
-                className="logoimg mt-3"
-              />
-            </div>
-            <div className="p-3">
-              <h1>Nombre</h1>
-              <strong>precio</strong>
-              <h4>stock</h4>
-            </div>
-            <div className="flex  justify-evenly  px-3 py-3">
-              <button className="m-1 rounded-full bg-white hover:bg-green-600 focus:outline-none focus:ring focus:ring-green-800 w-20 h-10 text-zinc-100  drop-shadow-xl">
-              🛒
-              </button>
-              <button className=" m-1 rounded-full bg-white hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-800 w-20 h-10 text-zinc-100 drop-shadow-xl ">
-              💚
-              </button>
-            </div>
-
-
-          </div>
-          <div className=" cartita cartita flex flex-col items-center mx-auto mt-5 mb-5 rounded-r-lg border-4 border-white bg-yellow-50 hover:bg-yellow-100 drop-shadow-lg">
-            <div>
-              <img
-                src="\src\assets\img\logodark.png"
-                alt="logo"
-                className="logoimg mt-3 "
-              />
-            </div>
-            <div className="p-3">
-              <h1>Nombre</h1>
-              <strong>Precio</strong>
-              <h4>stock</h4>
-            </div>
-            <div className="flex  justify-evenly  px-3 py-3">
-              <button className="m-1 rounded-full bg-white hover:bg-green-600 focus:outline-none focus:ring focus:ring-green-800 w-20 h-10 text-zinc-100  drop-shadow-xl">
-              🛒
-              </button>
-              <button className="m-1 rounded-full bg-white  hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-800 w-20 h-10 text-zinc-100 drop-shadow-xl ">
-              💚
-              </button>
-            </div>
-          </div>
-
-
-          <div className=" cartita cartita flex flex-col items-center mx-auto mt-5 mb-5 rounded-r-lg border-4 border-white bg-yellow-50 hover:bg-yellow-100 drop-shadow-lg">
-            <div>
-              <img
-                src="\src\assets\img\logodark.png"
-                alt="logo"
-                className="logoimg mt-3"
-              />
-            </div>
-            <div className="p-3">
-              <h1>Nombre</h1>
-              <strong>Precio</strong>
-              <h4>stock</h4>
-            </div>
-            <div className="flex  justify-evenly  px-3 py-3">
-              <button className="m-1 rounded-full bg-white hover:bg-green-600 focus:outline-none focus:ring focus:ring-green-800 w-20 h-10 text-zinc-100  drop-shadow-xl">
-              🛒
-              </button>
-              <button className=" m-1 rounded-full bg-white hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-800 w-20 h-10 text-zinc-100 drop-shadow-xl ">
-              💚
-              </button>
-            </div>
-          </div>
+       
         </div>
       </div>
     </div>

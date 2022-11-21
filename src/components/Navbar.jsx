@@ -1,10 +1,22 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-const Navbar = () => {
+import { auth } from "../firebase/Firebase";
+import { useNavigate } from 'react-router-dom';
+const Navbar = (props) => {
+  const navigate = useNavigate();
+
+  const cerrarSesion = () => {
+    auth.signOut()
+    .then(() => {
+      navigate("/")
+    })
+
+  }
   return (
     <div className=" bg-black text-white containerNav">
       <nav className="sm:hidden md:grid md:grid-cols-2 md:grid-rows-1 md:rounded md:rounded-b-xl md:p-2 md:h-12 md:mb-5">
         <div className="md:mx-auto">
+          
           <NavLink to="/">
             <img
               src="\src\assets\img\logodark.png"
@@ -12,21 +24,44 @@ const Navbar = () => {
               className="logoimg"
             />
           </NavLink>
+    
+          
         </div>
         <div className="  md:flex md:items-center md:justify-center md:pt-12 md:m-2 ">
-          <NavLink to="/">LOGIN</NavLink>
-          <p>/</p>
-          <br />
-          <NavLink to="/tienda">TIENDA</NavLink>
-          <p>/</p>
-          <NavLink to="/perfil">PERFIL</NavLink>
-          <p>/</p>
-          <NavLink to="/favoritos">FAVORITOS</NavLink>
-          <p>/</p>
+          {
+            props.firebaseUser !== null ? (
+              <button onClick={() => cerrarSesion()}>
+                 LOGOUT/
+              </button>
+            ) : (
+              <NavLink to="/">LOGIN /</NavLink>
+  
+            )
+          }
+          
+          {
+            props.firebaseUser !== null ? (
+              <NavLink to="/tienda">TIENDA/</NavLink>
+            ) : null
+          }
 
-          <NavLink to="/detalle">DETALLE</NavLink>
-          <p>/</p>
-          <NavLink to="/publicar">PUBLICAR</NavLink>
+
+    
+    {
+            props.firebaseUser !== null ? (
+              
+              <NavLink to="/perfil">PERFIL/</NavLink>
+            ) : null
+          }
+    
+  
+        
+          {
+            props.firebaseUser !== null ? (
+              <NavLink to="/publicar">PUBLICAR</NavLink>
+            ) : null
+          }
+       
         </div>
       </nav>
 
@@ -45,23 +80,41 @@ const Navbar = () => {
         <div>
           <ul className="md:hidden p-1 mb-1">
             <li className="m-2">
-              <NavLink to="/">LOGIN</NavLink>
+            {
+            props.firebaseUser !== null ? (
+              <button onClick={() => cerrarSesion()}>
+                 LOGOUT
+              </button>
+            ) : (
+              <NavLink to="/">LOGIN /</NavLink>
+  
+            )
+          }
             </li>
             <li className="m-2"> 
+            {
+            props.firebaseUser !== null ? (
               <NavLink to="/tienda">TIENDA</NavLink>
+            ) : null
+          }
             </li>
 
             <li className="m-2">
+            {
+            props.firebaseUser !== null ? (
+              
               <NavLink to="/perfil">PERFIL</NavLink>
+            ) : null
+          }
             </li>
+         
+          
             <li className="m-2">
-              <NavLink to="/favoritos">FAVORITOS</NavLink>
-            </li>
-            <li className="m-2">
-              <NavLink to="/detalle">DETALLE</NavLink>
-            </li>
-            <li className="m-2">
+            {
+            props.firebaseUser !== null ? (
               <NavLink to="/publicar">PUBLICAR</NavLink>
+            ) : null
+          }
             </li>
           </ul>
         </div>

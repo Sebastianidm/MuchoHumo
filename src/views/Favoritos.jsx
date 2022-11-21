@@ -1,7 +1,15 @@
 import React from 'react'
+import { useContext } from 'react';
+import { useParams } from "react-router-dom";
+import myContext from '../context/myContext';
 
 const Favoritos = () => {
+
+  const { id } = useParams();
+  const { productosData, setProductosData } = useContext(myContext);
+  const list = productosData.filter((register) => register.id === id);
   return (
+
     <div className='favorito'>
     <div className="  md:grid md:grid-cols-4 md:grid-rows-1">
     <div className="md:hidden   p-3 ">
@@ -87,78 +95,33 @@ const Favoritos = () => {
     <div className="md:col-span-3 favorito pt-2  ">
     <h1 className='text-xl text-center text-white text-bold'> Productos Favoritos </h1>
       <div className="md:grid md:grid-rows-2 md:grid-cols-2 mt-5">
-        
-        <div className="cartita flex flex-col items-center mx-auto mt-5 mb-5 rounded-r-lg border-4 border-white bg-yellow-50 hover:bg-yellow-100 drop-shadow-lg">
+       
+        <div 
+        key={list[0].id}
+        className="cartita flex flex-col items-center mx-auto mt-5 mb-5 rounded-r-lg border-4 border-white bg-yellow-50 hover:bg-yellow-100 drop-shadow-lg">
           <div>
             <img
-              src="\src\assets\img\logodark.png"
+              src={list[0].img}
               alt="logo"
               className="logoimg mt-3"
             />
           </div>
           <div className="p-3">
-            <h1>Nombre</h1>
-            <strong>Precio</strong>
-            <h4>Stock</h4>
+            <h1>{list[0].name}</h1>
+            <strong>{list[0].desc}</strong>
           </div>
          
         </div>
 
 
-        <div className="cartita cartita flex flex-col items-center mx-auto mt-5 mb-5 rounded-r-lg border-4 border-white bg-yellow-50 hover:bg-yellow-100 drop-shadow-lg">
-          <div>
-            <img
-              src="\src\assets\img\logodark.png"
-              alt="logo"
-              className="logoimg mt-3"
-            />
-          </div>
-          <div className="p-3">
-            <h1>Nombre</h1>
-            <strong>precio</strong>
-            <h4>stock</h4>
-          </div>
+       
 
-
-
-        </div>
-        <div className=" cartita cartita flex flex-col items-center mx-auto mt-5 mb-5 rounded-r-lg border-4 border-white bg-yellow-50 hover:bg-yellow-100 drop-shadow-lg">
-          <div>
-            <img
-              src="\src\assets\img\logodark.png"
-              alt="logo"
-              className="logoimg mt-3 "
-            />
-          </div>
-          <div className="p-3">
-            <h1>Nombre</h1>
-            <strong>Precio</strong>
-            <h4>stock</h4>
-          </div>
-          
-        </div>
-
-
-        <div className=" cartita cartita flex flex-col items-center mx-auto mt-5 mb-5 rounded-r-lg border-4 border-white bg-yellow-50 hover:bg-yellow-100 drop-shadow-lg sm:mb-3">
-          <div>
-            <img
-              src="\src\assets\img\logodark.png"
-              alt="logo"
-              className="logoimg mt-3"
-            />
-          </div>
-          <div className="p-3">
-            <h1>Nombre</h1>
-            <strong>Precio</strong>
-            <h4>stock</h4>
-          </div>
-          
-        </div>
-      </div>
     </div>
   </div>
   </div>
+  </div>
   )
-}
+      }
+
 
 export default Favoritos

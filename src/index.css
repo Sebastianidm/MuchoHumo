@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 .App{
+    padding-bottom: 0;
     height:100vh;
     max-height:100%;
     background-color: #A63F3F;
@@ -29,12 +30,22 @@ max-width: 120px
     height:100vh;
     width:100%;    
   }
+
+.contenedorTienda{
+   
+    height:100%;
+  
+}
   
 
-.aside {
+.asideTienda {
+    background-color: #A63F3F;
+    max-height:100%;
     height: 100vh;
-    width: 100%
+    width: 100%;
+    margin-top:50%;
 }
+
 
 .filtrado {
     width:  80%
@@ -42,16 +53,12 @@ max-width: 120px
 
 .cartita {
     width:60%;
-    background-color: #FFFAF0;
+    background-color: #FFFF;
 }
 
 .tienda {
     height: 100vh;
-    background-color: #FFFAF0;
-}
-
-.asideBg {
-    background-color: #A63F3F;
+    background-color: #FFFF;
 }
 
 
