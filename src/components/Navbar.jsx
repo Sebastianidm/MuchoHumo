@@ -30,35 +30,35 @@ const Navbar = (props) => {
         <div className="  md:flex md:items-center md:justify-center md:pt-12 md:m-2 ">
           {
             props.firebaseUser !== null ? (
-              <button onClick={() => cerrarSesion()}>
-                 LOGOUT/
+              <button onClick={() => cerrarSesion()} className="font-semibold">
+                 LOGOUT
               </button>
             ) : (
-              <NavLink to="/">LOGIN /</NavLink>
+              <NavLink to="/" className="font-semibold">LOGIN /</NavLink>
   
             )
           }
-          
+          <p className="text-black">-</p>
           {
             props.firebaseUser !== null ? (
-              <NavLink to="/tienda">TIENDA/</NavLink>
+              <NavLink to="/tienda" className="font-semibold">TIENDA</NavLink>
             ) : null
           }
 
-
+<p className="text-black">-</p>
     
     {
             props.firebaseUser !== null ? (
               
-              <NavLink to="/perfil">PERFIL/</NavLink>
+              <NavLink to="/perfil" className="font-semibold">PERFIL</NavLink>
             ) : null
           }
     
-  
+    <p className="text-black">-</p>
         
           {
             props.firebaseUser !== null ? (
-              <NavLink to="/publicar">PUBLICAR</NavLink>
+              <NavLink to="/publicar" className="font-semibold">PUBLICAR</NavLink>
             ) : null
           }
        
@@ -82,11 +82,11 @@ const Navbar = (props) => {
             <li className="m-2">
             {
             props.firebaseUser !== null ? (
-              <button onClick={() => cerrarSesion()}>
+              <button onClick={() => cerrarSesion()} className="font-semibold">
                  LOGOUT
               </button>
             ) : (
-              <NavLink to="/">LOGIN /</NavLink>
+              <NavLink to="/" className="font-semibold">LOGIN /</NavLink>
   
             )
           }
@@ -94,7 +94,7 @@ const Navbar = (props) => {
             <li className="m-2"> 
             {
             props.firebaseUser !== null ? (
-              <NavLink to="/tienda">TIENDA</NavLink>
+              <NavLink to="/tienda" className="font-semibold">TIENDA</NavLink>
             ) : null
           }
             </li>
@@ -103,7 +103,7 @@ const Navbar = (props) => {
             {
             props.firebaseUser !== null ? (
               
-              <NavLink to="/perfil">PERFIL</NavLink>
+              <NavLink to="/perfil" className="font-semibold">PERFIL</NavLink>
             ) : null
           }
             </li>
@@ -112,7 +112,7 @@ const Navbar = (props) => {
             <li className="m-2">
             {
             props.firebaseUser !== null ? (
-              <NavLink to="/publicar">PUBLICAR</NavLink>
+              <NavLink to="/publicar" className="font-semibold">PUBLICAR</NavLink>
             ) : null
           }
             </li>

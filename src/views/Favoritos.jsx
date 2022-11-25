@@ -34,21 +34,10 @@ const Favoritos = () => {
           />
         </div>
        
-        <div className="p-2.5 mt-3  rounded-md px-4">
-          
-          <h2 className="ml-4 pb-1 text-dark block text-left">Filtrar por:</h2>
-          <select type="text" className="filtrado block ml-4 text-dark font-bold " placeholder="Filtrar por">  
-           <option value="text" className='text-dark'>Puros</option>
-           <option value="text" className='text-dark'>Cigarros</option>
-           <option value="text" className='text-dark'>Tabaco</option>
-           <option value="text" className='text-dark'>Accesorios</option>
-           </select>
-          
-          
-        </div>
+        
         <div className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-slate-600 text-dark">
           <i className="bi bi-bookmark-fill"></i>
-          <span className="text-[15px] ml-4 text-dark font-bold">
+          <span  onClick={() => navigate(`/publicar`)} className="text-[15px] ml-4 text-dark font-bold">
             Publicar producto
           </span>
         </div>
@@ -93,7 +82,7 @@ const Favoritos = () => {
     </div>
 
     <div className="md:col-span-3 favorito pt-2  ">
-    <h1 className='text-xl text-center text-white text-bold'> Productos Favoritos </h1>
+    <h1 className='text-xl text-center text-white font-bold'> Productos Favoritos </h1>
       <div className="md:grid md:grid-rows-2 md:grid-cols-2 mt-5">
        
         <div 

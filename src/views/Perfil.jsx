@@ -3,10 +3,10 @@ import React from 'react'
 const Perfil = () => {
   return (
     <div className='publicar'>
-      <h1 className='text-xl text-center text-white text-bold p-4'> Perfil del usuario</h1>
+      <h1 className='text-xl text-center text-white font-bold p-4'> Perfil De Usuario</h1>
     <div className='flex content-center containerP '>
       
-      <div className='shadow-xl rounded-xl bg-white cartaPerfil border flex flex-col   items-center  mx-auto mt-10'>
+      <div className='shadow-xl rounded-xl bg-white cartaPerfil border flex flex-col   items-center  mx-auto pt-10  mt-10'>
       <div>
               <img
                 src="\src\assets\img\logodark.png"

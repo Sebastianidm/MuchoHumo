@@ -25,9 +25,9 @@ const Publicar = () => {
           </div>
           <div className="md:w-1/2 px-3">
             <label className="uppercase tracking-wide text-black text-xs font-bold mb-2" for="title">
-              Precio
+              Stock disponible
             </label>
-            <input className="w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="title" type="text" placeholder="Precio del producto" />
+            <input className="w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" id="title" type="text" placeholder="Stock" />
           </div>
         </div>
         <div className="-mx-3 md:flex mb-6">

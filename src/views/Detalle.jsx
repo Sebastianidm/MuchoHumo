@@ -10,7 +10,7 @@ const Detalle = () => {
 
   return (
     <div className="  sm:grid sm:grid-cols-1 sm:grid-rows-1 sm:bg-black  ">
-      <div className="mx-auto mt-5 mb-5 
+      <div className="mx-auto mt-5 mb-5 px-5 pb-5
       ">
         <div
           key={list[0].id}

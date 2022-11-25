@@ -18,9 +18,7 @@ const Tienda = () => {
     setProductosData([...api]);
   }
 
-
   
-
 
   useEffect( () => {
     if(auth.currentUser){
@@ -34,7 +32,7 @@ const Tienda = () => {
   },[])
 
   return (
-    <div className=" contenedorTienda md:grid md:grid-cols-3 md:grid-rows-3">
+    <div className="  md:grid md:grid-cols-3 md:grid-rows-3">
       <div className="md:hidden bg-white  py-2 ">
       <input  
               value={term}
@@ -42,16 +40,16 @@ const Tienda = () => {
               type="search"
               placeholder="Buscar producto
               "
-              className="text-[15px]  bg-gray-600 rounded w-full h-12 mt-1 "
+              className="text-[15px]  bg-black text-white font-bold rounded w-full h-12 mt-1 text-center "
             />
         
       </div>
 
 
-      <div className="sm:hidden md:contents md:col-span-1 ">
-        <div className="  bottom-0  p-2  text-center aside">
+      <div className="sm:hidden md:contents md:col-span-1  ">
+        <div className="asideTienda  bottom-0  p-3  text-center aside">
 
-          <div className="p-2.5 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-white text-dark ">
+          <div className="p-2.5 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-white text-white ">
             <i className="bi bi-search text-sm"></i>
             <input
              value={term}
@@ -59,58 +57,47 @@ const Tienda = () => {
               type="search"
               placeholder="Buscar producto
               "
-              className=" ml-4 w-full bg-transparent focus:outline-none"
+              className=" ml-4 w-full bg-black rounded-sm text-center p-2 focus:outline-none text-white font-bold"
             />
           </div>
          
-          <div className="p-2.5 mt-3  rounded-md px-4">
-            
-            <h2 className="ml-4 pb-1 text-white block text-left">Filtrar por:</h2>
-            <select type="text" className="filtrado block ml-4 text-dark font-bold " placeholder="Filtrar por">  
-             <option value="text">Puros</option>
-             <option value="text">Cigarros</option>
-             <option value="text">Tabaco</option>
-             <option value="text">Accesorios</option>
-             </select>
-            
-            
-          </div>
-          <div className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
+          
+          <div className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-yellow-50 text-white">
             <i className="bi bi-bookmark-fill"></i>
-            <span className="text-[15px] ml-4 text-gray-200 font-bold">
+            <span onClick={() => navigate(`/publicar`)} className="text-[15px] ml-4 text-black  font-bold">
               Publicar producto
             </span>
           </div>
           <div className="my-4 bg-white h-[1px]"></div>
           <div className="p-2.5 mt-1 flex items-center">
               
-              <h1 className="font-bold text-gray-200 text-[15px] ml-3">
+              <h1 className="font-bold text-black text-[15px] ml-6">
                 Categorias
               </h1>
             
             </div>
           <div
-            className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
+            className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer  text-white"
             onclick="dropdown()"
           >
             <i className="bi bi-chat-left-text-fill"></i>
           </div>
           <div
-            className="text-left text-sm mt-2 w-4/5 mx-auto text-gray-200 font-bold"
+            className="text-left text-sm mt-2 w-4/5 mx-auto text-black font-bold"
             id="submenu"
           >
-            <h1 className="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
+            <h1 className="cursor-pointer p-2 hover:yellow-50 rounded-md mt-1">
               Tabaco
             </h1>
-            <h1 className="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
+            <h1 className="cursor-pointer p-2 hover:bg-yellow-50 rounded-md mt-1">
               Cigarros
             </h1>
-            <h1 className="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
+            <h1 className="cursor-pointer p-2 hover:bg-yellow-50 rounded-md mt-1">
               Puros
             </h1>
            
           </div>
-          <div className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
+          <div className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-black-600 text-white">
             <i className="bi bi-box-arrow-in-right"></i>
             
           </div>
@@ -123,7 +110,7 @@ const Tienda = () => {
           {
             productosData.filter(user => user.name.toLowerCase().includes(term)).map((a) => {
               return(
-          <div className="cartita flex flex-col items-center mx-auto mt-5 mb-5 rounded-r-lg border-4 border-white bg-yellow-50 hover:bg-yellow-100 drop-shadow-lg" key={a.id}>
+          <div className="cartita flex flex-col items-center mx-auto mt-5 mb-5 rounded-r-lg border-4 border-white bg-yellow-50 hover:bg-lime-50 drop-shadow-lg" key={a.id}>
             <div>
               <img
                 src={a.img}
