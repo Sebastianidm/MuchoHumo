@@ -9,13 +9,13 @@ const Perfil = () => {
       <div className='shadow-xl rounded-xl bg-white cartaPerfil border flex flex-col   items-center  mx-auto pt-10  mt-10'>
       <div>
               <img
-                src="\src\assets\img\logodark.png"
+                src="/src/assets/img/logodark.png"
                 alt="logo"
                 className="logoimg rounded-full mt-5"
               />
       </div>
-      <h1 className='mt-5'>Nombre De Usuario</h1>
-      <h2 className='mt-5'>Correo de Usuario </h2>
+      
+      <h2 className='mt-5'>presentacion@presentacion.com </h2>
       <div className='mt-10'>
       <h2 className='text-center pb-3'>Redes sociales</h2>
         <ul className='flex flex-row '>

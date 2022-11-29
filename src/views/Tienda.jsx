@@ -121,7 +121,7 @@ const Tienda = () => {
             <div className="p-3">
               <h1>{a.name}</h1>
               <strong>{a.desc}</strong>
-              <h4>Stock</h4>
+              <h4>Stock disponible</h4>
             </div>
             <div className="flex  justify-evenly  px-3 py-3">
               <button 

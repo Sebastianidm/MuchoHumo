@@ -19,7 +19,7 @@ const Navbar = (props) => {
           
           <NavLink to="/">
             <img
-              src="\src\assets\img\logodark.png"
+              src="/src/assets/img/logodark.png"
               alt="logo"
               className="logoimg"
             />
@@ -34,7 +34,7 @@ const Navbar = (props) => {
                  LOGOUT
               </button>
             ) : (
-              <NavLink to="/" className="font-semibold">LOGIN /</NavLink>
+              <NavLink to="/" className="font-semibold">LOGIN </NavLink>
   
             )
           }
@@ -70,7 +70,7 @@ const Navbar = (props) => {
         <div>
           <NavLink to="/">
             <img
-              src="\src\assets\img\logodark.png"
+              src="/src/assets/img/logodark.png"
               alt="logo"
               className="logoimg mx-auto"
             />

@@ -17,7 +17,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        'login-fondo': "url('C:\Users\sebas\OneDrive\Escritorio\marketplace\marketplace\src\assets\img\puros.jpg')",
+        'login-fondo': "url('C:/Users/sebas/OneDrive/Escritorio/marketplace/marketplace/src/assets/img/puros.jpg')",
       }
       
     },
