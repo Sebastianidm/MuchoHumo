@@ -92,7 +92,7 @@ const Login = () => {
     
       <div className='sm:grid sm:grid-cols-1 sm:grid-rows-2   md:h-96  md:my-12 md:grid md:grid-cols-2 md:grid-rows-1  md:place-content-center  flex-wrap '>
         
-        <div className="order-2 md:order-1 md:rounded  md:items-center  md:justify-center md:ml-4 md:mt-3  md:border border-black bg-[url('C:\Users\sebas\OneDrive\Escritorio\marketplace\marketplace\src\assets\img\puros.jpg')] bg-cover bg-center hover:grayscale ">
+        <div className="order-2 md:order-1 md:rounded  md:items-center  md:justify-center md:ml-4 md:mt-3  md:border border-black bg-[url('C:/Users/sebas/OneDrive/Escritorio/marketplace/marketplace/src/assets/img/puros.jpg')] bg-cover bg-center hover:grayscale ">
             
         </div>
         <div className='order-1 md:order-2 md:rounded  sm-flex sm:flex-col sm:items-center sm:justify-center sm:p-3 bg-black  md:flex md:items-center md:justify-center  md:mr-4 md:mt-3 md:bg-black  '>
