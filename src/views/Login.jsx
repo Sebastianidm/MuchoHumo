@@ -92,11 +92,11 @@ const Login = () => {
     
       <div className='sm:grid sm:grid-cols-1 sm:grid-rows-2   md:h-96  md:my-12 md:grid md:grid-cols-2 md:grid-rows-1  md:place-content-center  flex-wrap '>
         
-        <div className="order-2 md:order-1 md:rounded  md:items-center  md:justify-center md:ml-4 md:mt-3  md:border border-black bg-[url('C:/Users/sebas/OneDrive/Escritorio/marketplace/marketplace/src/assets/img/puros.jpg')] bg-cover bg-center hover:grayscale ">
+        <div className="order-2 md:order-1 md:rounded  md:items-center  md:justify-center md:ml-4 md:mt-3  md:border border-black bg-[url('https://firebasestorage.googleapis.com/v0/b/marketplace-b3a91.appspot.com/o/puros.jpg?alt=media&token=3f23eeda-05ce-431d-b24c-f5883669e6e2')] bg-cover bg-center hover:grayscale ">
             
         </div>
         <div className='order-1 md:order-2 md:rounded  sm-flex sm:flex-col sm:items-center sm:justify-center sm:p-3 bg-black  md:flex md:items-center md:justify-center  md:mr-4 md:mt-3 md:bg-black  '>
-            <form  onSubmit={procesarDatos} className=' sm:flex sm:flex-col sm:m-2 sm:p-2  sm:border-none    md:flex flex-col   bg-black shadow-2xl border-white-800 '>
+            <form  onSubmit={procesarDatos} className=' sm:flex sm:flex-col   sm:border-none    md:flex flex-col   bg-black shadow-2xl border-white-800 '>
                 <h1 className=' sm:p-3 sm:m-2 md:m-1 md:p-4  text-white text-2xl'> 
                 {
                   esRegistro ? 'Registro de Usuarios' : 'Login de acceso'
