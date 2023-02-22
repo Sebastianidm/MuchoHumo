@@ -19,7 +19,7 @@ const Navbar = (props) => {
           
           <NavLink to="/">
             <img
-              src="/src/assets/img/logodark.png"
+              src="https://firebasestorage.googleapis.com/v0/b/marketplace-b3a91.appspot.com/o/logodark.png?alt=media&token=c6215c05-1edd-484b-9451-545e2f353d45"
               alt="logo"
               className="logoimg"
             />

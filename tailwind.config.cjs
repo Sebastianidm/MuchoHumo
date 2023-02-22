@@ -17,7 +17,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        'login-fondo': "url('C:/Users/sebas/OneDrive/Escritorio/marketplace/marketplace/src/assets/img/puros.jpg')",
+        'login-fondo': "url('https://firebasestorage.googleapis.com/v0/b/marketplace-b3a91.appspot.com/o/puros.jpg?alt=media&token=3f23eeda-05ce-431d-b24c-f5883669e6e2')",
       }
       
     },
